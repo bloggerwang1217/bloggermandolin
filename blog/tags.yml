@@ -22,3 +22,43 @@
   label: 管理學
   permalink: /management
   description: 關於管理理論、組織運作與實務分享
+
+生活:
+  label: 生活
+  permalink: /life
+  description: 關於日常生活、個人成長與體驗
+
+心理學:
+  label: 心理學
+  permalink: /psychology
+  description: 心理學理論、實踐與自我探索
+
+感情:
+  label: 感情
+  permalink: /relationship
+  description: 關於愛情、友情、親情等人際關係
+
+統計學:
+  label: 統計學
+  permalink: /statistics
+  description: 統計方法、資料分析與實務應用
+
+經濟學:
+  label: 經濟學
+  permalink: /economics
+  description: 經濟學理論、案例與生活應用
+
+政治:
+  label: 政治
+  permalink: /politics
+  description: 政治理論、時事評論與社會議題
+
+深度學習:
+  label: 深度學習
+  permalink: /deep-learning
+  description: 人工智慧、類神經網路與深度學習技術
+
+音樂:
+  label: 音樂
+  permalink: /music
+  description: 關於曼陀林、編曲混音、Cover、演奏與創作
