@@ -1,8 +1,12 @@
 ---
-slug: IKEA和困難的想法
+title: IKEA 與人生的難事
+date: 2025-01-07
+tags: [生活, 管理學]
+description: 從 IKEA 組裝經驗反思人生難題。
+slug: ikea-hard-things
 ---
 
-# IKEA和困難的想法
+# IKEA 和困難的想法
 
 在朱文儀老師策略管理課程中，IKEA 個案讓我有很多收穫。讓我想到 Wiwi 的分享的[困難的事情](https://wiwi.blog/blog/hard-things)：
 

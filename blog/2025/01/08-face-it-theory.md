@@ -1,5 +1,9 @@
 ---
-slug: 被斷崖式曖昧該怎麼辦？
+title: 被斷崖式曖昧該怎麼辦？
+date: 2025-01-08
+tags: [心理學, 感情]
+description: 探討 Face It 理論與自我成長的歷程。
+slug: face-it-theory
 ---
 
 # 被斷崖式曖昧該怎麼辦？
