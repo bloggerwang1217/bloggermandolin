@@ -18,3 +18,14 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Obsidian
+blog/.obsidian/
+docs/.obsidian/
+
+# VSCode
+.vscode/
+
+# Yarn
+.yarn/
+.yarnrc.yml
