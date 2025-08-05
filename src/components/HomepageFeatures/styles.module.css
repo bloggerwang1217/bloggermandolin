@@ -1,0 +1,28 @@
+.features {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertical alignment */
+  align-items: center;      /* Horizontal alignment */
+  height: 100%;             /* Ensure full height is used */
+  text-align: center;
+}
+
+.featureText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.featureImg {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}

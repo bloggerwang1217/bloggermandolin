@@ -1,0 +1,96 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #3a539b; /* Darker blue from your logo */
+  --ifm-color-primary-dark: #2e4378;
+  --ifm-color-primary-darker: #253864;
+  --ifm-color-primary-darkest: #1c2d50;
+  --ifm-color-primary-light: #506ba6;
+  --ifm-color-primary-lighter: #647bb0;
+  --ifm-color-primary-lightest: #8299c1;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust the color scheme for dark mode as well if needed */
+[data-theme='dark'] {
+  --ifm-color-primary: #8aacff;
+  --ifm-color-primary-dark: #3a539b; /* Adjust dark mode colors if needed */
+  --ifm-color-primary-darker: #2e4378;
+  --ifm-color-primary-darkest: #253864;
+  --ifm-color-primary-light: #506ba6;
+  --ifm-color-primary-lighter: #647bb0;
+  --ifm-color-primary-lightest: #8299c1;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* For the hero title */
+.hero__title {
+  font-size: calc(1.5vw + 1.5em);  /* Adjust to fit your design */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff; /* Ensure the text color contrasts with the background */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Add shadow for better visibility */
+}
+
+/* For the hero subtitle */
+.hero__subtitle {
+  color: #fff; /* Ensure subtitle text is white or light */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Add shadow for better clarity */
+}
+
+/* Ensure the iframe scales down on smaller screens */
+.responsive-iframe {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+/* Further control for small screens */
+@media (max-width: 600px) {
+  .responsive-iframe {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Adjustments for small screens */
+@media (max-width: 768px) {
+  .heroBanner {
+    background-size: cover;
+    background-position: top center;
+    height: 60vh; /* Reduce height for smaller screens */
+  }
+}
+
+/* Further control for very small screens (phones) */
+@media (max-width: 480px) {
+  .heroBanner {
+    height: 50vh;               /* Further reduce the height for small devices */
+    background-size: cover;     /* Ensures it still covers the section properly */
+  }
+}
+
+.video-container {
+  position: relative;
+  width: 100%; /* Take up the full width of the container */
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+}

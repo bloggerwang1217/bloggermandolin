@@ -1,0 +1,57 @@
+/* Add your custom background for the hero banner */
+.heroBanner {
+  background-image: url('/img/background.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  height: 75vh; /* Make it take the full height of the viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Horizontally center content */
+  text-align: center; /* Center text */
+  padding: 1rem;
+  position: relative;
+}
+
+/* Center the iframe */
+.responsive-iframe-container {
+  max-width: 800px; /* Adjust this to your desired maximum width */
+  margin: 0 auto; /* Centers the iframe */
+  margin-top: 1.5rem;
+  z-index: 1;
+}
+
+/* Ensure the iframe is responsive */
+.responsive-iframe-container iframe {
+  width: 100%;
+  height: auto; /* Adjusts height to maintain aspect ratio */
+}
+
+/* Quote section styling */
+.quoteSection {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.quoteSection blockquote {
+  font-size: 1.25rem;
+  font-style: italic; /* Keep italic for the main page */
+  color: #555;
+  border-left: 5px solid #3a539b; /* Blue line on the left */
+  padding-left: 1rem;
+  max-width: 800px;
+  margin: 0 auto; /* Center blockquote on the main page */
+}
+
+.quoteSection blockquote p {
+  margin: 0;
+}
+
+.quoteSection blockquote footer {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #888;
+}
+
