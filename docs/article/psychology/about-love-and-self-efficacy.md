@@ -1,5 +1,7 @@
 ---
-author: Blogger Wang
+title: 愛的自我效能
+tags: [心理學]
+description: 以自我效能理論解析愛與依附關係。
 date: 2024-11-17
 id: "about-love-and-self-efficacy"
 sidebar_label: 愛的自我效能

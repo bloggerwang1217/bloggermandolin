@@ -1,4 +1,8 @@
 ---
+title: 部落客小王真的要開始寫部落格了？
+date: 2024-09-05
+tags: [生活]
+description: Blogger Wang 開始寫部落格，分享頻道與生活趣事。
 slug: first-blog-post
 ---
 

@@ -1,5 +1,9 @@
 ---
-slug: 第一次被斷崖式曖昧
+title: 第一次被斷崖式曖昧
+date: 2024-10-16
+tags: [心理學, 感情]
+description: 探討 Face It 理論與個人成長的故事。
+slug: first-time-cliff
 ---
 
 # 第一次被斷崖式曖昧

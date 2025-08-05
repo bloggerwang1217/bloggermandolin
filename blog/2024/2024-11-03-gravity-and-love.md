@@ -1,4 +1,8 @@
 ---
+title: 萬有引力般
+date: 2024-11-03
+tags: [感情]
+description: 以重力隱喻探討愛與人際關係。
 slug: gravity-and-love
 ---
 
