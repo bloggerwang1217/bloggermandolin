@@ -27,7 +27,7 @@ sidebar_label: 民主的本質與中間選民
 
 ### 市場買蘋果
 
-![阿伯賣蘋果](./apple_local_market.webp)
+![阿伯賣蘋果](/img/economics/median-voter-theorem/apple_local_market.webp)
 
 今天如果你去市場跟阿伯買蘋果，你看到桌上有超過 20 顆蘋果。你可以看到有些蘋果光澤明亮，有一些感覺已經黯淡無光，但大部分賣相一般般。你就隨口問了一下：
 
@@ -79,7 +79,7 @@ sidebar_label: 民主的本質與中間選民
 
 你發現了嗎？最後兩邊的老闆會因為不想錯過任何顧客，不斷的向中間移動。最後的結果就是兩個攤販都在**沙灘的正中間**[^1]。
 
-![最後兩家店的老闆就會近到可以跟彼此打招呼了](./in_the_middle.webp)
+![最後兩家店的老闆就會近到可以跟彼此打招呼了](/img/economics/median-voter-theorem/in_the_middle.webp)
 
 （最後兩家店的老闆就會近到可以跟彼此打招呼了）
 

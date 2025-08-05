@@ -42,7 +42,7 @@ sidebar_label: 愛的自我效能
 
 瞬間我就可以把想妳的念頭和聯絡妳的行為切開，知道怎麼樣符合我們兩人的最佳利益。我也取回了我自己的主控權，因為焦慮暫時已經聽我的話了。雖然還是有點懷疑，甚至有點害怕再次碰到妳，我的焦慮會不會控制不住，又傷害妳了呢？讓我想到 BEASTARS 的劇情。我這樣掙扎的感覺，或許就跟雷格斯對哈魯的喜歡夾雜著垂涎的食慾。而妳對我的感受，是不是也夾雜著草食動物對肉食動物的恐懼呢？
 
-![雷格西和哈魯（BEASTARS第一季）](./雷格西和哈魯.webp)
+![雷格西和哈魯（BEASTARS第一季）](/img/psychology/about-love-and-self-efficacy/雷格西和哈魯.webp)
 
 ## 心理學筆記
 
@@ -77,4 +77,4 @@ sidebar_label: 愛的自我效能
 
 || 期待一下 BEASTARS Final Season ||
 
-![BEASTARS最終季視覺圖](./BEASTARS_Final_Season.webp)
+![BEASTARS最終季視覺圖](/img/psychology/about-love-and-self-efficacy/BEASTARS_Final_Season.webp)
