@@ -1,0 +1,48 @@
+name: Deploy to Linode
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        # 取得最新的程式碼
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+        # 設定 Node.js 20 環境
+
+      - name: Install dependencies
+        run: yarn install
+        # 安裝 yarn 依賴
+
+      - name: Build site
+        run: yarn build
+        # 建構 Docusaurus 網站
+
+      - name: Copy build files to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.LINODE_HOST }}
+          username: ${{ secrets.LINODE_USER }}
+          key: ${{ secrets.LINODE_SSH_KEY }}
+          source: "build/*"
+          target: "/var/www/bloggermandolin.com/"
+        # 用 SCP 傳送 build 後的檔案到 Linode 伺服器
+
+      - name: Reload nginx
+        uses: appleboy/ssh-action@v0.1.11
+        with:
+          host: ${{ secrets.LINODE_HOST }}
+          username: ${{ secrets.LINODE_USER }}
+          key: ${{ secrets.LINODE_SSH_KEY }}
+          script: |
+            sudo systemctl reload nginx
+        # 用 SSH 連線伺服器並重載 nginx
