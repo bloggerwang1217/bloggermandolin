@@ -22,6 +22,8 @@ yarn-error.log*
 # Obsidian
 blog/.obsidian/
 docs/.obsidian/
+docs/article/.obsidian/
+docs/cover/.obsidian/
 
 # VSCode
 .vscode/
