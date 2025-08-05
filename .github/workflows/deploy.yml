@@ -13,6 +13,7 @@ on:
       - 'docusaurus.config.js'
       - 'package.json'
       - 'yarn.lock'
+      - '.github/workflows/deploy.yml'
 
 jobs:
   deploy:
@@ -45,6 +46,16 @@ jobs:
         run: yarn build
         # 建構 Docusaurus 網站
 
+      - name: Clean target directory
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.LINODE_HOST }}
+          username: ${{ secrets.LINODE_USER }}
+          key: ${{ secrets.LINODE_SSH_KEY }}
+          script: |
+            rm -rf /var/www/bloggermandolin.com/*
+        # 清空目標目錄中的舊檔案
+
       - name: Copy build files to server
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -53,6 +64,7 @@ jobs:
           key: ${{ secrets.LINODE_SSH_KEY }}
           source: "build/*"
           target: "/var/www/bloggermandolin.com/"
+          strip_components: 1
         # 用 SCP 傳送 build 後的檔案到 Linode 伺服器
 
       - name: Reload nginx
