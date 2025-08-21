@@ -31,3 +31,6 @@ docs/cover/.obsidian/
 # Yarn
 .yarn/
 .yarnrc.yml
+
+# backup for image path normalization
+.imgpath_backup/
