@@ -1,0 +1,204 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-weight: 500;
+  margin: 20px 0 40px 0;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.formSection {
+  flex: 0 0 45%;
+  background: var(--ifm-card-background-color);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: var(--ifm-global-shadow-lw);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.inputGroup {
+  margin-bottom: 24px;
+}
+
+.label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 14px;
+}
+
+.fileInput,
+.textarea,
+.select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-emphasis-800);
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.fileInput:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 200px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  line-height: 1.5;
+}
+
+.submitButton {
+  width: 100%;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submitButton:hover {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+.previewSection {
+  flex: 1;
+  background: var(--ifm-card-background-color);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: var(--ifm-global-shadow-lw);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.previewTitle {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.previewContent {
+  background-color: var(--ifm-code-background);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 16px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-height: 400px;
+  overflow-y: auto;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 12px;
+}
+
+.downloadButton,
+.copyButton {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.downloadButton {
+  background-color: var(--ifm-color-success);
+  color: white;
+}
+
+.downloadButton:hover {
+  background-color: var(--ifm-color-success-dark);
+}
+
+.copyButton {
+  background-color: var(--ifm-color-info);
+  color: white;
+}
+
+.copyButton:hover {
+  background-color: var(--ifm-color-info-dark);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 14px;
+  color: var(--ifm-color-emphasis-600);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.link {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* 響應式設計 */
+@media (max-width: 996px) {
+  .content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .formSection {
+    flex: none;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+  
+  .formSection,
+  .previewSection {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin: 16px 0 24px 0;
+  }
+}
