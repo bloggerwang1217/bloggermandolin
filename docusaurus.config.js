@@ -102,6 +102,11 @@ const config = {
             position: 'left',
           },
           {
+            to: '/tools',
+            label: '小工具',
+            position: 'left',
+          },
+          {
             href: 'https://www.youtube.com/@BloggerMandolin',
             label: 'YouTube頻道',
             position: 'right',
