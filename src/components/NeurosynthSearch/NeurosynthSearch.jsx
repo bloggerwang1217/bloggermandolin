@@ -1,19 +1,42 @@
 import React, { useEffect, useRef } from 'react';
 import './style.css';
-import { mountNeurosynth } from './index';
 
 export default function NeurosynthSearch() {
   const rootRef = useRef(null);
 
   useEffect(() => {
-    // mountNeurosynth expects the DOM structure (ids) to exist.
-    // We assume the JSX below mirrors the original HTML structure.
-    mountNeurosynth();
+    // Dynamically import the client-only module to avoid accessing
+    // `document` during server-side rendering. This prevents the
+    // Docusaurus static build error: "document is not defined".
+    let mod = null;
+    let cancelled = false;
+
+    if (typeof window !== 'undefined') {
+      import('./index')
+        .then((m) => {
+          if (cancelled) return;
+          mod = m;
+          if (m && typeof m.mountNeurosynth === 'function') {
+            m.mountNeurosynth();
+          }
+        })
+        .catch((err) => {
+          // Fail gracefully; show console message for debugging
+          // during client runtime.
+          // eslint-disable-next-line no-console
+          console.error('Failed to load Neurosynth client module', err);
+        });
+    }
 
     return () => {
-      // Basic cleanup: remove event listeners by reloading the page or
-      // not mounting twice. For complex teardown, index.js should
-      // export an unmount function.
+      cancelled = true;
+      if (mod && typeof mod.unmountNeurosynth === 'function') {
+        try {
+          mod.unmountNeurosynth();
+        } catch (e) {
+          // ignore
+        }
+      }
     };
   }, []);
 

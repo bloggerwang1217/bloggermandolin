@@ -894,10 +894,19 @@ async function submitLeftQuery() {
 // Event Listeners
 // ======================
 
+let _isMounted = false;
+let _debouncedMainInput = null;
+let _debouncedLeftInput = null;
+let _boundDocumentClickHandler = null;
+
 export function mountNeurosynth() {
+  if (typeof document === 'undefined') return; // guard if accidentally called during SSR
+  if (_isMounted) return; // idempotent
+  _isMounted = true;
+
   // Main input
-  const debouncedMainInput = debounce(handleMainInput, CONFIG.DEBOUNCE_MS);
-  elements.mainInput.addEventListener('input', debouncedMainInput);
+  _debouncedMainInput = debounce(handleMainInput, CONFIG.DEBOUNCE_MS);
+  elements.mainInput.addEventListener('input', _debouncedMainInput);
   elements.mainInput.addEventListener('keydown', handleMainKeydown);
   elements.mainInput.addEventListener('focus', () => {
     if (state.mainInput.length >= CONFIG.MIN_LENGTH) {
@@ -907,8 +916,8 @@ export function mountNeurosynth() {
   elements.mainSubmitBtn.addEventListener('click', submitMainQuery);
 
   // Left input
-  const debouncedLeftInput = debounce(handleLeftInput, CONFIG.DEBOUNCE_MS);
-  elements.leftInput.addEventListener('input', debouncedLeftInput);
+  _debouncedLeftInput = debounce(handleLeftInput, CONFIG.DEBOUNCE_MS);
+  elements.leftInput.addEventListener('input', _debouncedLeftInput);
   elements.leftInput.addEventListener('keydown', handleLeftKeydown);
   elements.leftInput.addEventListener('focus', () => {
     if (state.leftInput.length >= CONFIG.MIN_LENGTH) {
@@ -917,7 +926,7 @@ export function mountNeurosynth() {
   });
   elements.leftSubmitBtn.addEventListener('click', submitLeftQuery);
 
-  // Initialize operator chooser list (UPDATE-2.md requirement 4)
+  // Initialize operator chooser list
   initializeOperatorChooser();
 
   // Related panel sort and Top-K buttons
@@ -953,7 +962,7 @@ export function mountNeurosynth() {
   });
 
   // Click outside to hide suggestions
-  document.addEventListener('click', (e) => {
+  _boundDocumentClickHandler = (e) => {
     if (!elements.mainInput.contains(e.target) && !elements.mainSuggestionsContainer.contains(e.target)) {
       hideSuggestions(false);
       hideOperatorChooser();
@@ -961,18 +970,42 @@ export function mountNeurosynth() {
     if (!elements.leftInput.contains(e.target) && !elements.leftSuggestionsContainer.contains(e.target)) {
       hideSuggestions(true);
     }
-  });
+  };
+  document.addEventListener('click', _boundDocumentClickHandler);
 
   // Initialize by fetching terms
   fetchTerms();
 }
 
-// Auto-mount if DOM is already ready
-if (document.readyState !== 'loading') {
-  // avoid double-initializing if called manually
-  try { mountNeurosynth(); } catch (e) {}
-} else {
-  document.addEventListener('DOMContentLoaded', () => {
-    try { mountNeurosynth(); } catch (e) {}
+export function unmountNeurosynth() {
+  if (!_isMounted) return;
+  _isMounted = false;
+
+  try {
+    if (_debouncedMainInput) elements.mainInput.removeEventListener('input', _debouncedMainInput);
+    elements.mainInput.removeEventListener('keydown', handleMainKeydown);
+    elements.mainInput.removeEventListener('focus', handleMainInput);
+    elements.mainSubmitBtn.removeEventListener('click', submitMainQuery);
+  } catch (e) {}
+
+  try {
+    if (_debouncedLeftInput) elements.leftInput.removeEventListener('input', _debouncedLeftInput);
+    elements.leftInput.removeEventListener('keydown', handleLeftKeydown);
+    elements.leftInput.removeEventListener('focus', handleLeftInput);
+    elements.leftSubmitBtn.removeEventListener('click', submitLeftQuery);
+  } catch (e) {}
+
+  try {
+    elements.sortByCoCountBtn.removeEventListener('click', renderRelatedTerms);
+  } catch (e) {}
+
+  try {
+    if (_boundDocumentClickHandler) document.removeEventListener('click', _boundDocumentClickHandler);
+  } catch (e) {}
+
+  // Abort any pending requests
+  Object.keys(abortControllers).forEach((k) => {
+    if (abortControllers[k]) try { abortControllers[k].abort(); } catch (e) {}
+    abortControllers[k] = null;
   });
 }
