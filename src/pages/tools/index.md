@@ -9,6 +9,8 @@ description: 這裡有 BloggerMandolin 網站提供的小型實用工具
 
 - [SRT 字幕翻譯複製工具](/tools/subtitle-copier) — 上傳 .srt 檔案並將逐行翻譯對應到原始時間軸，支援預覽、下載與複製（繁體/英/日）。
 
+- [Neurosynth Search](/tools/neurosynth-search) — \[NTU 114-1 資訊學作業\] Neurosynth-style 搜尋介面：搜尋相關術語、查看關聯用詞與研究結果。
+
 ---
 
 如果你希望聯絡我（例如告訴我應該加什麼小工具與說明）
