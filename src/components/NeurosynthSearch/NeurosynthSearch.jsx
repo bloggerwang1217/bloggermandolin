@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import './style.css';
 
 export default function NeurosynthSearch() {
@@ -44,8 +45,8 @@ export default function NeurosynthSearch() {
     <div className="neurosynth-root">
       <div className="container" ref={rootRef}>
       <header className="header">
-        <div className="header-content">
-          <img src="/neurosynth/brain_logo.jpg" alt="Neurosynth Logo" className="header-logo" />
+          <div className="header-content">
+          <img src={useBaseUrl('neurosynth/brain_logo.jpg')} alt="Neurosynth Logo" className="header-logo" />
           <div className="header-text">
             <h1>Neurosynth Search</h1>
             <p className="help-text">Supported: AND, OR, NOT operators; "exact phrases"; boolean queries</p>
