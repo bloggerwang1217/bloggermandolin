@@ -41,7 +41,8 @@ export default function NeurosynthSearch() {
   }, []);
 
   return (
-    <div className="container" ref={rootRef}>
+    <div className="neurosynth-root">
+      <div className="container" ref={rootRef}>
       <header className="header">
         <div className="header-content">
           <img src="/neurosynth/brain_logo.jpg" alt="Neurosynth Logo" className="header-logo" />
@@ -117,6 +118,7 @@ export default function NeurosynthSearch() {
       </div>
 
       <div id="toastContainer" className="toast-container"></div>
+      </div>
     </div>
   );
 }

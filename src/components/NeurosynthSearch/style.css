@@ -1,23 +1,23 @@
-/* General Styles */
-* {
+/* Scoped General Styles for Neurosynth component */
+.neurosynth-root * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+.neurosynth-root {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background: linear-gradient(135deg, #f9f5f7 0%, #f5eff2 100%);
   min-height: 100vh;
   padding: 20px;
 }
 
-.container {
+.neurosynth-root .container {
   max-width: 1400px;
   margin: 0 auto;
 }
 
-.header {
+.neurosynth-root .header {
   margin-bottom: 40px;
   background: white;
   padding: 30px;
@@ -25,7 +25,7 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.header-content {
+.neurosynth-root .header-content {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -33,14 +33,14 @@ body {
   position: relative;
 }
 
-.header-logo {
+.neurosynth-root .header-logo {
   height: 100px;
   width: auto;
   flex-shrink: 0;
   min-width: 100px;
 }
 
-.header-text {
+.neurosynth-root .header-text {
   text-align: center;
   flex: 1;
   position: absolute;
@@ -48,13 +48,47 @@ body {
   transform: translateX(-50%);
 }
 
-.header h1 {
+/* Responsive: on narrow screens stack logo under the title to avoid overlap */
+@media (max-width: 480px) {
+  .neurosynth-root .header-content {
+    flex-direction: column;
+    align-items: center;
+    position: static; /* allow normal document flow */
+    gap: 8px;
+  }
+
+  .neurosynth-root .header-logo {
+    height: 72px; /* slightly smaller on phones */
+    min-width: auto;
+  }
+
+  .neurosynth-root .header-text {
+    position: static;
+    left: auto;
+    transform: none;
+    width: 100%;
+    text-align: center;
+    margin-top: 4px;
+    padding: 0 12px;
+  }
+
+  /* Show logo below the text on narrow screens */
+  .neurosynth-root .header-text { order: 1; }
+  .neurosynth-root .header-logo { order: 2; margin-top: 6px; }
+
+  /* reduce header padding to save vertical space */
+  .neurosynth-root .header {
+    padding: 18px 12px;
+  }
+}
+
+.neurosynth-root .header h1 {
   color: #2c3e50;
   margin-bottom: 10px;
   font-size: 32px;
 }
 
-.help-text {
+.neurosynth-root .help-text {
   color: #7f8c8d;
   font-size: 14px;
 }
@@ -638,4 +672,25 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Additional scoped overrides to ensure no leakage into Docusaurus global styles.
+   These duplicate key rules with a .neurosynth-root prefix so the component remains
+   visually consistent while avoiding collisions with the rest of the site. */
+/* (scoped declarations above cover component styles; specific overrides can be added here if needed) */
+
+/* Scoped scrollbar styling */
+.neurosynth-root ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.neurosynth-root ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.neurosynth-root ::-webkit-scrollbar-thumb {
+  background: #bdc3c7;
+  border-radius: 4px;
+}
+.neurosynth-root ::-webkit-scrollbar-thumb:hover {
+  background: #95a5a6;
 }
