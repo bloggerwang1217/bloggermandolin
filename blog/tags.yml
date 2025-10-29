@@ -53,6 +53,11 @@
   permalink: /politics
   description: 政治理論、時事評論與社會議題
 
+機器學習:
+  label: 機器學習
+  permalink: /machine-learning
+  description: 機器學習演算法、應用與實務分享
+
 深度學習:
   label: 深度學習
   permalink: /deep-learning
