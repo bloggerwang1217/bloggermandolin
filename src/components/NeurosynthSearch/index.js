@@ -1,6 +1,6 @@
 // Configuration
 const CONFIG = {
-  API_BASE: 'https://mil.psy.ntu.edu.tw:5000',
+  API_BASE: 'https://hpc.psy.ntu.edu.tw:5000',
   DEBOUNCE_MS: 250,
   MIN_LENGTH: 2,
   INFINITE_SCROLL_THRESHOLD: 200,
@@ -31,13 +31,14 @@ const state = {
   leftSuggestionIndex: -1,
   operatorChooserVisible: false,
   operatorIndex: 0,
-  operators: ['AND', 'OR', 'NOT'],
+  operators: ['AND', 'OR', 'NOT'], // Only AND, OR, NOT (no space)
   cursorAfterSpace: 0, // Position where space was typed
   leftResults: [], // Related terms data
   resultsData: [], // Study results
   resultsTotal: 0,
   currentQuery: '',
   operatorChooserActive: false,
+  // Related terms sorting and Top-K
   relatedSortBy: 'co_count',
   relatedTopK: 10,
   // Results sorting
@@ -49,8 +50,6 @@ const elements = {
   // Main query inputs
   mainInput: document.getElementById('mainInput'),
   leftInput: document.getElementById('leftInput'),
-  mainSubmitBtn: document.getElementById('mainSubmitBtn'),
-  leftSubmitBtn: document.getElementById('leftSubmitBtn'),
 
 
   // Suggestions
@@ -79,6 +78,7 @@ const elements = {
   resultsSection: document.getElementById('resultsSection'),
   resultsList: document.getElementById('resultsList'),
   resultCount: document.getElementById('resultCount'),
+  currentQuery: document.getElementById('currentQuery'),
   resultsError: document.getElementById('resultsError'),
   resultsLoading: document.getElementById('resultsLoading'),
   resultsControls: document.getElementById('resultsControls'),
@@ -119,6 +119,15 @@ function debounce(func, delay) {
     timeoutId = setTimeout(() => func(...args), delay);
   };
 }
+
+// Debounced submit for main query so input updates trigger AJAX reliably.
+// Accept the current query as an argument to avoid reading stale `state.mainInput`
+// when the debounced callback finally runs (this prevents overwriting the
+// user's fast edits with an older value).
+const debouncedSubmitMainQuery = debounce((query) => {
+  // fire-and-forget; submitMainQuery manages its own loading state and aborts
+  submitMainQuery(query);
+}, CONFIG.DEBOUNCE_MS);
 
 function highlightPrefix(text, prefix) {
   if (!prefix) return text;
@@ -264,6 +273,7 @@ function renderSuggestions(terms, container, prefix, isLeftPanel = false) {
 
   container.parentElement.style.display = 'block';
 
+  // Pre-select first item (set index to 0, not -1)
   if (isLeftPanel) {
     state.leftSuggestionIndex = 0;
   } else {
@@ -288,10 +298,13 @@ function renderSuggestions(terms, container, prefix, isLeftPanel = false) {
     textSpan.innerHTML = highlightPrefix(term, prefix);
     li.appendChild(textSpan);
 
+    // Copy buttons removed
+
     li.addEventListener('click', () => {
       selectSuggestion(term, isLeftPanel);
     });
 
+    // Update suggestion focus on hover
     li.addEventListener('mouseenter', () => {
       if (isLeftPanel) {
         state.leftSuggestionIndex = index;
@@ -309,19 +322,28 @@ function selectSuggestion(term, isLeftPanel) {
   if (isLeftPanel) {
     elements.leftInput.value = term;
     submitLeftQuery();
-  } else {
-    const cursorPos = elements.mainInput.selectionStart;
-    const value = elements.mainInput.value;
+    return;
+  }
 
-    // Find the start of current word (last space or start of string)
-    let wordStart = value.lastIndexOf(' ', cursorPos - 1) + 1;
-    const before = value.substring(0, wordStart);
-    elements.mainInput.value = before + term;
-    elements.mainInput.focus();
-    elements.mainInput.setSelectionRange(before.length + term.length, before.length + term.length);
+  // Right (complex) panel: replace the current word with the selected term
+  const cursorPos = elements.mainInput.selectionStart;
+  const value = elements.mainInput.value;
 
-    state.mainInput = elements.mainInput.value;
-    hideSuggestions(false);
+  // Find the start of current word (last space or start of string)
+  const wordStart = value.lastIndexOf(' ', cursorPos - 1) + 1;
+  const before = value.substring(0, wordStart);
+  elements.mainInput.value = before + term;
+  elements.mainInput.focus();
+  elements.mainInput.setSelectionRange(before.length + term.length, before.length + term.length);
+
+  state.mainInput = elements.mainInput.value;
+  hideSuggestions(false);
+
+  // After an explicit selection, trigger the complex query immediately using
+  // the current input snapshot. Log any error rather than letting it bubble.
+  try {
+    submitMainQuery(state.mainInput.trim());
+  } catch (err) {
   }
 }
 
@@ -365,7 +387,12 @@ function copyToClipboard(text) {
 
 function renderRelatedTerms(related, sortBy = 'co_count', topK = 10) {
   if (!related || related.length === 0) {
-    elements.relatedPanel.style.display = 'none';
+    // Show panel and a friendly message when no related terms are found
+    elements.relatedPanel.style.display = 'block';
+    elements.relatedLoading.style.display = 'none';
+    elements.relatedControls.style.display = 'none';
+    elements.relatedListContainer.style.display = 'block';
+    elements.relatedList.innerHTML = `<div style="padding:12px;color:#7f8c8d;">No related terms found</div>`;
     return;
   }
 
@@ -465,6 +492,8 @@ function renderResults(data) {
   state.resultsData = data.results;
   state.resultsTotal = data.count;
 
+  // Update header with current query snapshot and result count
+  elements.currentQuery.textContent = state.currentQuery;
   elements.resultCount.textContent = state.resultsTotal;
   elements.resultsList.innerHTML = '';
 
@@ -630,6 +659,22 @@ async function handleMainInput() {
   } else {
     hideSuggestions(false);
   }
+
+  // Also auto-submit the full query (debounced) if it's long enough,
+  // but do NOT auto-submit immediately after the user typed a space
+  // (space is used to trigger the operator chooser and should be preserved).
+  if (lastChar !== ' ' && !state.operatorChooserActive) {
+    const fullQuery = state.mainInput.trim();
+    if (fullQuery.length >= CONFIG.MIN_LENGTH) {
+      // Pass the current (trimmed) query into the debounced submit so the
+      // scheduled submission uses this snapshot instead of reading a potentially
+      // stale `state.mainInput` later.
+      debouncedSubmitMainQuery(fullQuery);
+    } else {
+      // hide results when query is too short
+      elements.resultsSection.style.display = 'none';
+    }
+  }
 }
 
 function handleMainKeydown(e) {
@@ -683,6 +728,10 @@ function handleMainKeydown(e) {
       submitMainQuery();
 
     }
+  } else if (e.key === 'Escape' && suggestionVisible) {
+    // Close only the main suggestions when Escape is pressed and suggestions are visible
+    e.preventDefault();
+    hideSuggestions(false);
   } else if (e.key === ' ') {
     e.preventDefault();
     // Type space and prepare operator chooser
@@ -707,6 +756,8 @@ function updateSuggestionFocus(suggestions) {
   Array.from(suggestions).forEach((item, index) => {
     if (index === state.mainSuggestionIndex) {
       item.classList.add('focused');
+      // Auto-scroll to focused item
+      item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     } else {
       item.classList.remove('focused');
     }
@@ -780,16 +831,15 @@ function confirmOperator() {
   handleMainInput();
 }
 
-async function submitMainQuery() {
-  const query = state.mainInput.trim();
+async function submitMainQuery(queryArg) {
+  // Allow callers to pass a snapshot query to avoid race-overwrites.
+  const query = typeof queryArg === 'string' ? queryArg : state.mainInput.trim();
   if (query.length === 0) {
     showToast('Please enter a query', 'error');
     return;
   }
 
-  // Remove trailing whitespace
   state.currentQuery = query;
-  elements.mainInput.value = query; // Also update the input field
 
   // Show loading indicator, hide results
   elements.resultsSection.style.display = 'block';
@@ -821,8 +871,18 @@ async function handleLeftInput() {
   if (currentWord.length >= CONFIG.MIN_LENGTH) {
     const terms = await fetchTerms();
     renderSuggestions(terms, elements.leftSuggestions, currentWord, true);
+
+    // Auto-fetch related terms via AJAX (debounced)
+    elements.relatedPanel.style.display = 'block';
+    elements.relatedLoading.style.display = 'block';
+    elements.relatedControls.style.display = 'none';
+    elements.relatedListContainer.style.display = 'none';
+    const related = await fetchRelatedTerms(currentWord);
+    elements.relatedLoading.style.display = 'none';
+    renderRelatedTerms(related);
   } else {
     hideSuggestions(true);
+    elements.relatedPanel.style.display = 'none';
   }
 }
 
@@ -850,6 +910,10 @@ function handleLeftKeydown(e) {
     e.preventDefault();
     state.leftSuggestionIndex = (state.leftSuggestionIndex - 1 + suggestions.length) % suggestions.length;
     updateLeftSuggestionFocus(suggestions);
+  } else if (e.key === 'Escape' && suggestionVisible) {
+    // Close only the left suggestions when Escape is pressed
+    e.preventDefault();
+    hideSuggestions(true);
   }
 }
 
@@ -857,6 +921,8 @@ function updateLeftSuggestionFocus(suggestions) {
   Array.from(suggestions).forEach((item, index) => {
     if (index === state.leftSuggestionIndex) {
       item.classList.add('focused');
+      // Auto-scroll to focused item
+      item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     } else {
       item.classList.remove('focused');
     }
@@ -900,26 +966,24 @@ export function mountNeurosynth() {
   _isMounted = true;
 
   // Main input
-  _debouncedMainInput = debounce(handleMainInput, CONFIG.DEBOUNCE_MS);
-  elements.mainInput.addEventListener('input', _debouncedMainInput);
+  const debouncedMainInput = debounce(handleMainInput, CONFIG.DEBOUNCE_MS);
+  elements.mainInput.addEventListener('input', debouncedMainInput);
   elements.mainInput.addEventListener('keydown', handleMainKeydown);
   elements.mainInput.addEventListener('focus', () => {
     if (state.mainInput.length >= CONFIG.MIN_LENGTH) {
       handleMainInput();
     }
   });
-  elements.mainSubmitBtn.addEventListener('click', submitMainQuery);
 
   // Left input
-  _debouncedLeftInput = debounce(handleLeftInput, CONFIG.DEBOUNCE_MS);
-  elements.leftInput.addEventListener('input', _debouncedLeftInput);
+  const debouncedLeftInput = debounce(handleLeftInput, CONFIG.DEBOUNCE_MS);
+  elements.leftInput.addEventListener('input', debouncedLeftInput);
   elements.leftInput.addEventListener('keydown', handleLeftKeydown);
   elements.leftInput.addEventListener('focus', () => {
     if (state.leftInput.length >= CONFIG.MIN_LENGTH) {
       handleLeftInput();
     }
   });
-  elements.leftSubmitBtn.addEventListener('click', submitLeftQuery);
 
   // Initialize operator chooser list
   initializeOperatorChooser();
