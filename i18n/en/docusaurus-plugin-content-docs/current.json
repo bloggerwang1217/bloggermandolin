@@ -1,0 +1,58 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.coverSidebar.category.👽膽大黨": {
+    "message": "👽 DAN DA DAN",
+    "description": "The label for category '👽膽大黨' in sidebar 'coverSidebar'"
+  },
+  "sidebar.coverSidebar.doc.Cover首頁": {
+    "message": "Cover Home",
+    "description": "The label for the doc item 'Cover首頁' in sidebar 'coverSidebar', linking to the doc cover"
+  },
+  "sidebar.articleSidebar.category.🌸動畫": {
+    "message": "🌸 Anime",
+    "description": "The label for category '🌸動畫' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.🌸動畫.link.generated-index.description": {
+    "message": "Anime thoughts and essays",
+    "description": "The generated-index page description for category '🌸動畫' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.🧠心理學": {
+    "message": "🧠 Psychology",
+    "description": "The label for category '🧠心理學' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.🧠心理學.link.generated-index.description": {
+    "message": "Psychology related articles",
+    "description": "The generated-index page description for category '🧠心理學' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.📊統計學": {
+    "message": "📊 Statistics",
+    "description": "The label for category '📊統計學' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.📊統計學.link.generated-index.description": {
+    "message": "Statistics related articles",
+    "description": "The generated-index page description for category '📊統計學' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.💻網站": {
+    "message": "💻 Website",
+    "description": "The label for category '💻網站' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.💻網站.link.generated-index.description": {
+    "message": "Website related articles",
+    "description": "The generated-index page description for category '💻網站' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.🏦經濟學": {
+    "message": "🏦 Economics",
+    "description": "The label for category '🏦經濟學' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.🏦經濟學.link.generated-index.description": {
+    "message": "Economics related articles",
+    "description": "The generated-index page description for category '🏦經濟學' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.doc.文章首頁": {
+    "message": "Articles Home",
+    "description": "The label for the doc item '文章首頁' in sidebar 'articleSidebar', linking to the doc article"
+  }
+}

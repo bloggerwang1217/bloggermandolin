@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "ブロガーワンのブログ！",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "Blogger Wang writes blogs! ここでは、私と私の興味に関するすべてのことを共有しています。",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "すべての投稿",
+    "description": "The label for the left sidebar"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "link.title.站內連結": {
+    "message": "站內連結",
+    "description": "The title of the footer links column with title=站內連結 in the footer"
+  },
+  "link.title.我的蹤跡": {
+    "message": "我的蹤跡",
+    "description": "The title of the footer links column with title=我的蹤跡 in the footer"
+  },
+  "link.title.樂譜": {
+    "message": "樂譜",
+    "description": "The title of the footer links column with title=樂譜 in the footer"
+  },
+  "link.item.label.綜合文章": {
+    "message": "綜合文章",
+    "description": "The label of footer link with label=綜合文章 linking to /docs/article"
+  },
+  "link.item.label.曼陀林cover": {
+    "message": "曼陀林cover",
+    "description": "The label of footer link with label=曼陀林cover linking to /docs/cover"
+  },
+  "link.item.label.YouTube頻道": {
+    "message": "YouTube頻道",
+    "description": "The label of footer link with label=YouTube頻道 linking to https://www.youtube.com/@BloggerMandolin"
+  },
+  "link.item.label.串流平台": {
+    "message": "串流平台",
+    "description": "The label of footer link with label=串流平台 linking to https://ffm.bio/bloggermandolin"
+  },
+  "link.item.label.Instagram": {
+    "message": "Instagram",
+    "description": "The label of footer link with label=Instagram linking to https://www.instagram.com/bloggermandolin/"
+  },
+  "link.item.label.X / Twitter": {
+    "message": "X / Twitter",
+    "description": "The label of footer link with label=X / Twitter linking to https://x.com/BloggerMandolin"
+  },
+  "link.item.label.巴哈小屋": {
+    "message": "巴哈小屋",
+    "description": "The label of footer link with label=巴哈小屋 linking to https://home.gamer.com.tw/creation.php?owner=m28341812"
+  },
+  "link.item.label.Musescore": {
+    "message": "Musescore",
+    "description": "The label of footer link with label=Musescore linking to https://musescore.com/user/29701571"
+  },
+  "link.item.label.Gumroad": {
+    "message": "Gumroad",
+    "description": "The label of footer link with label=Gumroad linking to https://bloggermandolin.gumroad.com/"
+  },
+  "link.item.label.Patreon": {
+    "message": "Patreon",
+    "description": "The label of footer link with label=Patreon linking to https://www.patreon.com/BloggerMandolin"
+  },
+  "copyright": {
+    "message": "Copyright © 2025 BloggerMandolin. All right reserved.",
+    "description": "The footer copyright"
+  }
+}

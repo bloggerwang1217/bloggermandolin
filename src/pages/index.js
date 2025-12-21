@@ -29,22 +29,51 @@ function HomepageHeader() {
 }
 
 function QuoteSection() {
+  const { i18n } = useDocusaurusContext();
+  const currentLocale = i18n.currentLocale;
+
+  let quoteText;
+  let authorText = '— BloggerMandolin';
+
+  if (currentLocale === 'en') {
+    quoteText = 'Conveying the warmth and passion of the mandolin, performing anime and video game music that touches the heart 🎶';
+  } else if (currentLocale === 'ja') {
+    quoteText = 'マンドリンの温かさと情熱を伝え、心に響くアニメとゲーム音楽を演奏する🎶';
+  } else {
+    quoteText = '「傳遞曼陀林的溫暖與激情，演奏動人心弦的動畫與遊戲音樂🎶」';
+  }
+
   return (
     <div className={styles.quoteSection}>
       <blockquote>
-        <p>「傳遞曼陀林的溫暖與激情，演奏動人心弦的動畫與遊戲音樂🎶」</p>
-        <footer>— BloggerMandolin</footer>
+        <p>{quoteText}</p>
+        <footer>{authorText}</footer>
       </blockquote>
     </div>
   );
 }
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const {siteConfig, i18n} = useDocusaurusContext();
+  const currentLocale = i18n.currentLocale;
+
+  let title, description;
+
+  if (currentLocale === 'en') {
+    title = `Welcome to ${siteConfig.title} Blog Site`;
+    description = 'Taiwan mandolin performer – playing anime and video game music';
+  } else if (currentLocale === 'ja') {
+    title = `${siteConfig.title} ブログサイトへようこそ`;
+    description = '台湾マンドリン奏者 – アニメとゲーム音楽を演奏';
+  } else {
+    title = `歡迎造訪 ${siteConfig.title} 部落格網站`;
+    description = '台灣曼陀林演奏家 – 演奏動畫、遊戲音樂';
+  }
+
   return (
     <Layout
-      title={`歡迎造訪 ${siteConfig.title} 部落格網站`}
-      description="台灣曼陀林演奏家 – 演奏動畫、遊戲音樂 <head />"
+      title={title}
+      description={description}
     >
       <HomepageHeader />
       <QuoteSection />

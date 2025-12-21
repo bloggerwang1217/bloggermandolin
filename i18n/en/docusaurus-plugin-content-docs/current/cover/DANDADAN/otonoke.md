@@ -28,47 +28,43 @@ sidebar_label: Otonoke / Creepy Nuts
   </iframe>
 </div>
 
-## 影片介紹
+## Video Introduction
 
-DandadanDandadanDandadanDandadan…  
+DanDaDanDanDaDanDanDaDanDanDaDan…
 
-今天要為大家帶來膽大黨 OP「Otonoke / Creepy Nuts」！
+Today I'm bringing you "Otonoke / Creepy Nuts", the OP of "DAN DA DAN"!
 
-每次遇到 Rap 都讓我很苦惱，這次開頭決定用敲擊的手法，後面的 Rap 就果斷略過直接接到副歌！你喜歡這樣的改編嗎？
+I always struggle when I encounter Rap songs. This time I decided to use a percussion style for the intro, and for the rap part, I skipped straight to the chorus! Do you like this arrangement?
 
-這次除了有一般的伴奏版外，我還特別出了鋼琴伴奏的版本！（我的一個小小實驗，想知道怎麼樣的版本大家比較喜歡，結果的分析歡迎看這遍！）歡迎在影片留言跟我說你比較喜歡哪個版本～謝謝你的收聽！我們就下次見囉～
+Besides the regular accompaniment version, I've also made a special piano accompaniment version! (This is my little experiment to see which version people prefer - you can check out the analysis of the results here!) Please let me know in the video comments which version you prefer~ Thank you for listening! See you next time~
 
-（小桃好可愛！
+(Momo is so cute!)
 
-## 歌詞翻譯
+## Lyrics Translation
 
-### 中文
+### English
 
-來源：木棉花（副歌）
+It possessed me, possessed me, possessed me, possessed me, possessed me
+After clawing its way out, the mist has cleared
+If the uneven edges could fit together smoothly
+If the pains could coincide
 
-上身了上身了上身了上身了上身了
-拚命爬出來之後霧氣已散
-要是凹凸能順利吻合
-要是痛楚能夠重合
-
-心靈 身體 頭腦
-正逐漸湧上的某種東西
-要是現在背上長有翅膀
-我將道別黑暗
-展翅飛向遠方
-心靈 身體 頭腦
-令人懷念的溫暖
-要是現在腳邊開著花朵
-我將道別黑暗
-展翅飛向遠方
-無論多少次我都會活下去
-在你或妳的心中
-在眼瞼內或耳裡
-在始終留在內心深處的旋律 韻律中
+Mind, body, head
+Something is gradually surging up
+If wings were to sprout on my back now
+I would say goodbye to the darkness
+Spread my wings and fly far away
+Mind, body, head
+A warm feeling that brings nostalgia
+If flowers were to bloom at my feet now
+I would say goodbye to the darkness
+Spread my wings and fly far away
+No matter how many times, I will keep living
+In your heart
+In your eyelids or in your ears
+In the melody/rhythm that always stays deep inside the heart
 
 ### 日本語
-
-出典：木棉花
 
 ハイレタハイレタハイレタハイレタハイレタ
 必死で這い出た先で霧は晴れた
@@ -90,7 +86,8 @@ DandadanDandadanDandadanDandadan…
 瞼の裏や耳の中
 胸の奥に居着いてるメロディー、リズムに
 
-## 樂譜/伴奏參考來源
+
+## Sheet / Source References
 
 - jacksonforte: https://musescore.com/user/1593221/scores/20048107 (Piano)
 - AMAYADORI MIDIWORKS: https://musescore.com/user/39725944/scores/21244648 (Sound alike)

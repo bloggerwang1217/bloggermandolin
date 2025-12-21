@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "BloggerMandolin's Blog!",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "That's right, I write blog posts! Here I share all sorts of things about me and my interests.",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "All Posts",
+    "description": "The label for the left sidebar"
+  }
+}

@@ -115,6 +115,10 @@ const config = {
             type: 'search',
             position: 'right',
           },
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
         ],
       },
       footer: {

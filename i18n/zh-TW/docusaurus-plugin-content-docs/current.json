@@ -1,0 +1,58 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.coverSidebar.category.👽膽大黨": {
+    "message": "👽膽大黨",
+    "description": "The label for category '👽膽大黨' in sidebar 'coverSidebar'"
+  },
+  "sidebar.coverSidebar.doc.Cover首頁": {
+    "message": "Cover首頁",
+    "description": "The label for the doc item 'Cover首頁' in sidebar 'coverSidebar', linking to the doc cover"
+  },
+  "sidebar.articleSidebar.category.🌸動畫": {
+    "message": "🌸動畫",
+    "description": "The label for category '🌸動畫' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.🌸動畫.link.generated-index.description": {
+    "message": "動畫感想與隨筆",
+    "description": "The generated-index page description for category '🌸動畫' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.🧠心理學": {
+    "message": "🧠心理學",
+    "description": "The label for category '🧠心理學' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.🧠心理學.link.generated-index.description": {
+    "message": "心理學相關文章",
+    "description": "The generated-index page description for category '🧠心理學' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.📊統計學": {
+    "message": "📊統計學",
+    "description": "The label for category '📊統計學' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.📊統計學.link.generated-index.description": {
+    "message": "統計學相關文章",
+    "description": "The generated-index page description for category '📊統計學' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.💻網站": {
+    "message": "💻網站",
+    "description": "The label for category '💻網站' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.💻網站.link.generated-index.description": {
+    "message": "網站相關文章",
+    "description": "The generated-index page description for category '💻網站' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.🏦經濟學": {
+    "message": "🏦經濟學",
+    "description": "The label for category '🏦經濟學' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.category.🏦經濟學.link.generated-index.description": {
+    "message": "經濟學相關文章",
+    "description": "The generated-index page description for category '🏦經濟學' in sidebar 'articleSidebar'"
+  },
+  "sidebar.articleSidebar.doc.文章首頁": {
+    "message": "文章首頁",
+    "description": "The label for the doc item '文章首頁' in sidebar 'articleSidebar', linking to the doc article"
+  }
+}

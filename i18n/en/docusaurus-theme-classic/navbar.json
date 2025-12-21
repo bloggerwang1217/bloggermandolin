@@ -1,0 +1,30 @@
+{
+  "title": {
+    "message": "BloggerMandolin",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "BloggerMandolin Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.曼陀林cover": {
+    "message": "Mandolin Cover",
+    "description": "Navbar item with label 曼陀林cover"
+  },
+  "item.label.綜合文章": {
+    "message": "Articles",
+    "description": "Navbar item with label 綜合文章"
+  },
+  "item.label.部落格": {
+    "message": "Blog",
+    "description": "Navbar item with label 部落格"
+  },
+  "item.label.小工具": {
+    "message": "Tools",
+    "description": "Navbar item with label 小工具"
+  },
+  "item.label.YouTube頻道": {
+    "message": "YouTube Channel",
+    "description": "Navbar item with label YouTube頻道"
+  }
+}

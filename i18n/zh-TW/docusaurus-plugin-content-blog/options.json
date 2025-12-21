@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "部落客小王的部落格!",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "沒錯，部落客小王會寫部落格!這裡分享跟我有關的大小事",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "所有貼文",
+    "description": "The label for the left sidebar"
+  }
+}
