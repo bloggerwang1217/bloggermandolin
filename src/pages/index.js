@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
@@ -9,20 +10,49 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx(styles.heroBanner)}>
+    <header className={clsx('hero', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
+        <Heading as="h1" className="hero__title" style={{ 
+          fontSize: '3rem', 
+          marginTop: '2rem', 
+          marginBottom: '1.5rem',
+          lineHeight: '1.2',
+          paddingBottom: '15px' 
+        }}>
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <iframe
-          className="responsive-iframe"
-          src="https://www.youtube.com/embed/msezCTCT2CQ"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+        <p className="hero__subtitle" style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>
+          {siteConfig.tagline}
+        </p>
+        <p style={{ fontSize: '1.2rem', opacity: 0.7, marginBottom: '2rem' }}>
+          Mandolinist | Music Producer | Full-Stack Developer
+        </p>
+        
+        <div className={styles.buttons}>
+          <Link
+            className="button button--primary button--lg"
+            to="/docs/portfolio"
+            style={{ padding: '1rem 2rem', fontSize: '1.2rem' }}>
+            探索作品集
+          </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="/blog"
+            style={{ padding: '1rem 2rem', fontSize: '1.2rem' }}>
+            閱讀部落格
+          </Link>
+        </div>
+
+        <div className={styles.videoContainer}>
+          <iframe
+            className={styles.responsiveIframe}
+            src="https://www.youtube.com/embed/msezCTCT2CQ"
+            title="Featured Mandolin Performance"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
     </header>
   );
@@ -44,11 +74,13 @@ function QuoteSection() {
   }
 
   return (
-    <div className={styles.quoteSection}>
-      <blockquote>
-        <p>{quoteText}</p>
-        <footer>{authorText}</footer>
-      </blockquote>
+    <div className={styles.quoteSection} style={{ background: '#fff', padding: '4rem 0', margin: 0, position: 'relative', zIndex: 10 }}>
+      <div className="container">
+        <blockquote>
+          <p>{quoteText}</p>
+          <footer>{authorText}</footer>
+        </blockquote>
+      </div>
     </div>
   );
 }
@@ -75,11 +107,17 @@ export default function Home() {
       title={title}
       description={description}
     >
-      <HomepageHeader />
+      <div className={styles.bgContainer}>
+        <HomepageHeader />
+      </div>
+
       <QuoteSection />
-      <main>
-        <HomepageFeatures />
-      </main>
+
+      <div className={styles.bgContainer}>
+        <main>
+          <HomepageFeatures />
+        </main>
+      </div>
     </Layout>
   );
 }

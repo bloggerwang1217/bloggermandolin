@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
+import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
@@ -104,18 +105,18 @@ const FeatureListJa = [
 
 function Feature({imgSrc, title, description, linkUrl}) {
   return (
-    <div className={clsx('col col--4', styles.featureItem)}>
-      <div className="text--center">
-        <a href={linkUrl}>
+    <div className={clsx('col col--4', styles.featureCol)}>
+      <Link to={linkUrl} className={styles.featureItem}>
+        <div className="text--center">
           <img src={imgSrc} className={styles.featureImg} alt={title} />
-        </a>
-      </div>
-      <div className={clsx('text--center', styles.featureText)}>
-        <Heading as="h3">
-          <a href={linkUrl}>{title}</a>
-        </Heading>
-        <p>{description}</p>
-      </div>
+        </div>
+        <div className={clsx('text--center', styles.featureText)}>
+          <Heading as="h3">
+            {title}
+          </Heading>
+          <p>{description}</p>
+        </div>
+      </Link>
     </div>
   );
 }

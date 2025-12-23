@@ -86,6 +86,12 @@ const config = {
         items: [
           {
             type: 'docSidebar',
+            sidebarId: 'portfolioSidebar',
+            position: 'left',
+            label: '作品集',
+          },
+          {
+            type: 'docSidebar',
             sidebarId: 'coverSidebar',
             position: 'left',
             label: '曼陀林cover',
