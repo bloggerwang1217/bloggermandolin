@@ -70,6 +70,17 @@ const config = {
         languages: ['en', 'zh', 'ja'], // Optional: Specify which languages to index
       },
     ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            from: '/about',
+            to: '/docs/portfolio',
+          },
+        ],
+      },
+    ],
   ],
 
   themeConfig:
