@@ -19,38 +19,39 @@ sidebar_position: 1
 
 這個網站的作品集分成五個部分：
 
-### [網站與全端系統](./web/) 🕊️
+## 網站與全端系統 🕊️
 
 從對話式 AI 平台到教育 RAG 系統的全端開發經驗。
 
-- **[台鵠：對話式知識探勘平台](./web/taihu.md)** - 前端重整與美化 eg. 使用 Zustand 實現並行多串流狀態管理（319+ commits）
-- **[Best-SciRAG：教案 RAG 知識庫](./web/best-scirag.md)** - Next.js + FastAPI 全端系統（810+ commits）
+- **台鵠：對話式知識探勘平台** - 前端重整與美化 eg. 使用 Zustand 實現並行多串流狀態管理（319+ commits）
+- **Best-SciRAG：教案 RAG 知識庫** - Next.js + FastAPI 全端系統（810+ commits）
 - **個人部落格網站**：本網站，展示內容管理與 SEO 架構
 
-### [深度學習與人工智慧](./deep-learning/) 🔍
+## 深度學習與人工智慧 🔍
 
 從 RAG 系統開發到音樂轉譜 AI，累積大量深度學習實戰。
 
-- **[Best-SciRAG RAG 引擎](./deep-learning/rag/best-scirag-rag.md)** - 混合搜尋（稠密向量 + 稀疏關鍵字）+ LLM 輔助 ETL
-- **[掃地機器人強化學習](./deep-learning/projects/robot-vacuum-rl.md)** - Q-Learning / Independent DQN 實驗
-- **[多聲部音樂轉譜 AI](./deep-learning/projects/music-transcription.md)** - Vision Transformer 頻譜圖轉樂譜
-- **[課程練習專案](./deep-learning/projects/course-projects.md)** - CNN、DQN、Diffusion Model 實戰練習
+- **Best-SciRAG RAG 引擎** - 混合搜尋（稠密向量 + 稀疏關鍵字）+ LLM 輔助 ETL（詳見網站與全端系統）
+- **掃地機器人強化學習** - Q-Learning / Independent DQN 實驗
+- **多聲部音樂轉譜 AI** - Vision Transformer 頻譜圖轉樂譜
+- **課程練習專案** - CNN、DQN、Diffusion Model 實戰練習
 
-### [音樂製作與演出](./music/) 🎭
+## 音樂製作與演出 🎭
 
 10+ 年曼陀林演奏經歷，從國家級舞台到 YouTube 頻道經營。
 
-- **[演出與表演](./music/performance.md)** - 20+ 場國家音樂廳演出，台灣曼陀林樂團資深團員
-- **[BloggerMandolin 頻道](./music/youtube-channel.md)** - 70+ 支影片、180+ 小時觀看時間，動漫音樂改編
+- **演出與表演** - 20+ 場國家音樂廳演出，台灣曼陀林樂團資深團員
+- **BloggerMandolin 頻道** - 70+ 支影片、180+ 小時觀看時間，動漫音樂改編
+- **音樂藝術** - 音樂理論與詮釋深度
 
-### [影音處理與製作](./media/) 🎬
+## 影音處理與製作 🎬
 
 從 YouTube 內容製作到 Podcast 混音的完整製作流程。
 
-- **[YouTuber 與內容製作](./media/youtube-production.md)** - 70+ 支完整製作影片，建立標準化 SOP
-- **[觀念碰撞所 Podcast 混音師](./media/podcast-mixing.md)** - 音訊混音編輯與品質把關
+- **YouTuber 與內容製作** - 70+ 支完整製作影片，建立標準化 SOP
+- **觀念碰撞所 Podcast 混音師** - 音訊混音編輯與品質把關
 
-### [工具與應用程式](./tools/) 🌌
+## 工具與應用程式 🌌
 
 大一時期開發的 Python 小工具，解決生活中的實際需求。
 

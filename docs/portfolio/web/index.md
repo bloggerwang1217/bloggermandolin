@@ -10,7 +10,7 @@ sidebar_position: 1
 
 ## 主要專案
 
-### [台鵠：對話式知識探勘平台](./taihu.md) 🕊️
+### 台鵠：對話式知識探勘平台 🕊️
 
 參與 Taihu 前端架構開發，這是一個對話式 AI 知識探勘平台。
 
@@ -24,7 +24,7 @@ sidebar_position: 1
 
 ---
 
-### [Best-SciRAG：教案 RAG 知識庫](./best-scirag.md) 📚
+### Best-SciRAG：教案 RAG 知識庫 📚
 
 全端系統開發，為教師提供快速理解與製作教案的 RAG 知識庫。
 
@@ -38,7 +38,7 @@ sidebar_position: 1
 
 ---
 
-### [個人部落格網站](./blog.md) ✍️
+### 個人部落格網站 ✍️
 
 本網站本身，展示內容管理、SEO 與部落格架構設計。
 

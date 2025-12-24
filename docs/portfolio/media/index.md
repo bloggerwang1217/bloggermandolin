@@ -10,7 +10,7 @@ sidebar_position: 4
 
 ## 主要項目
 
-### [YouTuber 與內容製作](./youtube-production.md) 🎬
+### YouTuber 與內容製作 🎬
 
 經營 BloggerMandolin YouTube 頻道，每支影片都是完整的 End-to-End 製作。
 
@@ -24,7 +24,7 @@ sidebar_position: 4
 
 ---
 
-### [觀念碰撞所 Podcast 混音師](./podcast-mixing.md) 🎙️
+### 觀念碰撞所 Podcast 混音師 🎙️
 
 擔任觀念碰撞所 Podcast 混音師，負責音訊混音編輯與品質把關。
 
